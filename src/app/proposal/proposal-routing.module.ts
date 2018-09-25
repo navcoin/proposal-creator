@@ -5,13 +5,17 @@ import {CreateProposalComponent} from './create-proposal/create-proposal.compone
 const routes: Routes = [
 
   {
-    path: '',
+    path: 'proposal',
     component: CreateProposalComponent,
+
+    children: [
+      {
+        path: 'create',
+        component: CreateProposalComponent
+      },
+    ]
   },
-  {
-    path: 'create',
-    component: CreateProposalComponent
-  },
+
 
 
 ];

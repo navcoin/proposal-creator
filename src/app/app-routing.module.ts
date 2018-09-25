@@ -1,15 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ProposalModule} from './proposal/proposal.module';
+import {ProposalComponent} from './proposal/proposal.component';
 
 
 const routes: Routes = [
+
   {
-    path: 'proposal',
-    component: ProposalModule
-  },
-  {
-    path: '', redirectTo: '/proposal', pathMatch: 'full'
+    path: '', redirectTo: '/proposal/create', pathMatch: 'full'
   }
 
 ];
