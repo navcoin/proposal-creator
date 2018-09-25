@@ -46,6 +46,7 @@
 
       <div class="time-to-complete">
         <h2 class="mat-h2">Time to complete</h2>
+        <p>How long will the proposal take to complete?</p>
         <mat-form-field>
           <mat-select placeholder="Years" formControlName="years">
             <mat-option *ngFor="let year of years" [value]="year">
@@ -74,20 +75,24 @@
 
     </form>
 
-  </mat-card-content>
-
-  <mat-card-actions>
-    <button mat-button
+    <button class="generate-btn" mat-raised-button
+            type="button"
             (click)="onGenerateClick()"
             [disabled]="createProposalForm.invalid"
 
     >GENERATE COMMAND</button>
 
-    <div *ngIf="showCmd">
-       <pre >{{generatedCMD}}</pre>
+    <div class="cmd-display" *ngIf="showCmd">
+      Copy the command below and paste it into the NavCoin core wallet debugger window, the navcoin cli, or the NavPi's command interface
+
+      <pre>{{generatedCMD}}</pre>
     </div>
 
 
-  </mat-card-actions>
+
+
+  </mat-card-content>
+
+
 
 </mat-card>

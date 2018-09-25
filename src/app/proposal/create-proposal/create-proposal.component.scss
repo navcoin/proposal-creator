@@ -2,11 +2,29 @@
 
 mat-card {
   max-width: 400px;
+
+  mat-card-content {
+    margin: 0 8px;
+
+    .cmd-display {
+
+      pre {
+        background-color: #dddddd;
+      }
+    }
+
+    .generate-btn{
+      margin-bottom: 20px;
+    }
+
+  }
 }
 
 mat-form-field {
   width: 100%;
 }
+
+
 
 .time-to-complete {
   mat-form-field {
