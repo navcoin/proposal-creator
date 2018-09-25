@@ -9,7 +9,7 @@ const routes: Routes = [
     component: CreateProposalComponent,
   },
   {
-    path: '/create',
+    path: 'create',
     component: CreateProposalComponent
   },
 
