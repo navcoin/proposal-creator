@@ -7,6 +7,7 @@ import {ProposalComponent} from './proposal.component';
 import {CreateProposalComponent} from './create-proposal/create-proposal.component';
 import {MatButtonModule, MatCardModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
+import {VoteProposalComponent} from './vote-proposal/vote-proposal.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatCardModule,
   ],
   declarations: [
-    ProposalComponent, CreateProposalComponent
+    ProposalComponent,
+    CreateProposalComponent,
+    VoteProposalComponent
   ]
 })
 export class ProposalModule { }

@@ -1,0 +1,57 @@
+
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Vote for Proposal</mat-card-title>
+    <mat-card-subtitle>Fill out the fields below to generate a vote for Proposal RPC command</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <form [formGroup]="voteProposalForm">
+
+      <p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="proposalHash"
+            placeholder="Proposal hash">
+          <mat-hint>The hash of the proposal you wish to vote on</mat-hint>
+        </mat-form-field>
+      </p>
+
+
+
+      <mat-form-field>
+        <mat-select placeholder="Vote for proposal" formControlName="vote">
+          <mat-option *ngFor="let voteOp of voteOption" [value]="voteOp">
+            {{voteOp}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+
+    </form>
+
+    <button class="generate-btn" mat-raised-button
+            type="button"
+            (click)="onGenerateClick()"
+            [disabled]="voteProposalForm.invalid"
+
+    >GENERATE COMMAND</button>
+
+    <div class="cmd-display" *ngIf="showCmd">
+      Copy the command below and paste it into the NavCoin core wallet debugger window, the navcoin cli, or the NavPi's command interface
+
+      <pre>{{generatedCMD}}</pre>
+    </div>
+
+
+
+
+  </mat-card-content>
+
+
+
+</mat-card>
