@@ -4,7 +4,16 @@ import {CreateProposalComponent} from './create-proposal/create-proposal.compone
 
 const routes: Routes = [
 
-  {path: 'create', component: CreateProposalComponent }
+  {
+    path: '',
+    component: CreateProposalComponent,
+  },
+  {
+    path: '/create',
+    component: CreateProposalComponent
+  },
+
+
 ];
 
 @NgModule({
