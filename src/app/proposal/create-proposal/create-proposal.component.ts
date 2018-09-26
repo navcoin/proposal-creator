@@ -17,6 +17,7 @@ export class CreateProposalComponent implements OnInit {
   _requestedAmountCtl: FormControl;
   _navAddressCtrl: FormControl;
   proposalDescriptionCtrl: FormControl;
+  // _proposalFeeCtrl: FormControl;
 
   _yearsCtrl: FormControl;
   _monthsCtrl: FormControl;
@@ -33,7 +34,8 @@ export class CreateProposalComponent implements OnInit {
 
     this._requestedAmountCtl = new FormControl(null, Validators.required);
     this.proposalDescriptionCtrl = new FormControl('', Validators.required);
-    this._navAddressCtrl = new FormControl('', Validators.required);
+    this._navAddressCtrl = new FormControl('', [Validators.required, Validators.maxLength(34), Validators.minLength(34)]);
+    // this._proposalFeeCtrl = new FormControl('', [Validators.min(100), Validators.]);
 
     this._yearsCtrl = new FormControl(0);
     this._monthsCtrl = new FormControl(0);
@@ -46,6 +48,7 @@ export class CreateProposalComponent implements OnInit {
     this.createProposalForm.addControl('requestedAmount', this._requestedAmountCtl);
     this.createProposalForm.addControl('navAddress', this._navAddressCtrl);
     this.createProposalForm.addControl('description', this.proposalDescriptionCtrl);
+    // this.createProposalForm.addControl('proposalFee', this._proposalFeeCtrl);
     this.createProposalForm.addControl('years', this._yearsCtrl);
     this.createProposalForm.addControl('months', this._monthsCtrl);
     this.createProposalForm.addControl('days', this._daysCtrl);

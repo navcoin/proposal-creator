@@ -1,5 +1,3 @@
-
-
 <mat-card>
   <mat-card-header>
     <mat-card-title>Create Proposal</mat-card-title>
@@ -15,10 +13,9 @@
             matInput
             formControlName="requestedAmount"
             placeholder="Amount of NAV Requested">
-          <mat-hint>This is the total amount of Nav required</mat-hint>
+          <mat-hint>This is the total amount of NAV required</mat-hint>
         </mat-form-field>
       </p>
-
 
 
       <p>
@@ -31,18 +28,27 @@
         </mat-form-field>
       </p>
 
-
       <p>
         <mat-form-field >
         <textarea matInput
-                  rows="3"
+                  rows="2"
                   [maxlength]="proposalDescMaxLength"
                   formControlName="description"
                   placeholder="Proposal Description"></textarea>
-          <mat-hint>This should provide detial about the proposal - you can include links</mat-hint>
+          <mat-hint>This should provide details about the proposal - you can also include links</mat-hint>
           <mat-hint align="end">{{proposalDescriptionCtrl.value.toString().length}} / {{proposalDescMaxLength}}</mat-hint>
         </mat-form-field>
       </p>
+
+      <!-- <p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="proposalFee"
+            placeholder="Propsal Fee">
+          <mat-hint>Optional: The propsal fee you wish to pay, the minimum is 100 NAV - if you leave this blank you will pay the default of 100 NAV</mat-hint>
+        </mat-form-field>
+      </p> -->
 
       <div class="time-to-complete">
         <h2 class="mat-h2">Time to complete</h2>
@@ -89,10 +95,7 @@
     </div>
 
 
-
-
   </mat-card-content>
-
 
 
 </mat-card>

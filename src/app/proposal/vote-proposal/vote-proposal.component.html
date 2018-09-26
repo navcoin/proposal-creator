@@ -3,7 +3,7 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>Vote for Proposal</mat-card-title>
-    <mat-card-subtitle>Fill out the fields below to generate a vote for Proposal RPC command</mat-card-subtitle>
+    <mat-card-subtitle>Fill out the fields below to generate a 'Vote for Proposal' RPC command</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
 
@@ -22,7 +22,7 @@
 
 
       <mat-form-field>
-        <mat-select placeholder="Vote for proposal" formControlName="vote">
+        <mat-select placeholder="Your vote for the proposal" formControlName="vote">
           <mat-option *ngFor="let voteOp of voteOption" [value]="voteOp">
             {{voteOp}}
           </mat-option>
@@ -46,7 +46,6 @@
 
       <pre>{{generatedCMD}}</pre>
     </div>
-
 
 
 
