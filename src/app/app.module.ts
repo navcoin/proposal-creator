@@ -6,15 +6,12 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {ProposalModule} from './proposal/proposal.module';
-
-import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { PaymentRequestModule } from './payment-request/payment-request.module';
-import { MatButtonToggleModule } from '@angular/material';
+import { PiModule } from './pi/pi.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,8 +21,8 @@ import { MatButtonToggleModule } from '@angular/material';
     AppRoutingModule,
     ProposalModule,
     PaymentRequestModule,
+    PiModule,
 
-    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

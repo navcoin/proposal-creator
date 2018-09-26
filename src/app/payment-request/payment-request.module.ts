@@ -5,9 +5,10 @@ import {RouterModule} from '@angular/router';
 import {PaymentRequestRoutingModule} from './payment-request-routing.module';
 import {PaymentRequestComponent} from './payment-request.component';
 import {CreatePaymentRequestComponent} from './create-payment-request/create-payment-request.component';
-import {MatButtonModule, MatCardModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatSelectModule, MatButtonToggleModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {VotePaymentRequestComponent} from './vote-payment-request/vote-payment-request.component';
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 
 @NgModule({
   imports: [
@@ -21,11 +22,13 @@ import {VotePaymentRequestComponent} from './vote-payment-request/vote-payment-r
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
+    MatButtonToggleModule
   ],
   declarations: [
     PaymentRequestComponent,
     CreatePaymentRequestComponent,
-    VotePaymentRequestComponent
+    VotePaymentRequestComponent,
+    NavigationMenuComponent
   ],
   exports: [
     PaymentRequestComponent

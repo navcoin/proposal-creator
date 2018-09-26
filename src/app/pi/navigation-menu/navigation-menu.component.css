@@ -1,0 +1,18 @@
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #42b6eb;
+}
+
+.mat-button-toggle-checked {
+  background-color: #42b6eb;
+}
+
+.mat-button-toggle-checked a {
+  color: #fff;
+}

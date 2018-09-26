@@ -1,0 +1,9 @@
+<nav>
+  <mat-button-toggle-group>
+      <mat-button-toggle *ngFor="let route of routes" >
+        <a routerLink="{{route.route}}">
+          {{route.name}}
+        </a>
+      </mat-button-toggle>
+  </mat-button-toggle-group>
+</nav>
