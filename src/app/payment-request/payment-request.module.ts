@@ -26,6 +26,9 @@ import {VotePaymentRequestComponent} from './vote-payment-request/vote-payment-r
     PaymentRequestComponent,
     CreatePaymentRequestComponent,
     VotePaymentRequestComponent
+  ],
+  exports: [
+    PaymentRequestComponent
   ]
 })
 export class PaymentRequestModule { }
