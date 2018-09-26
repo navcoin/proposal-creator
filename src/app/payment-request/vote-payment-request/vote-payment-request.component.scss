@@ -1,0 +1,32 @@
+mat-card {
+
+  mat-card-content {
+    margin: 0 8px;
+
+    .cmd-display {
+
+      pre {
+        background-color: #dddddd;
+        white-space: pre-wrap;
+        padding: 10px;
+      }
+    }
+
+    .generate-btn{
+      margin-bottom: 20px;
+    }
+
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+
+
+.time-to-complete {
+  mat-form-field {
+    width: 50px;
+  }
+}

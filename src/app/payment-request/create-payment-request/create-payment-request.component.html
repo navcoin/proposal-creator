@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create Payment Request</mat-card-title>
+    <mat-card-subtitle>Fill out the fields below to generate a 'Create Payment Request' RPC command</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <form [formGroup]="createPaymentRequestForm">
+
+      <p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="proposalHash"
+            placeholder="Proposal Hash">
+          <mat-hint>This is hash of the proposal that you are requesting payment for</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="requestedAmount"
+            placeholder="Amount of NAV Requested">
+          <mat-hint>This is the total amount of NAV required</mat-hint>
+        </mat-form-field>
+      </p>
+
+
+      <p>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="uniqueID"
+            placeholder="Unique ID">
+          <mat-hint>A unique name for the payment request</mat-hint>
+        </mat-form-field>
+      </p>
+
+    </form>
+
+    <button class="generate-btn" mat-raised-button
+            type="button"
+            (click)="onGenerateClick()"
+            [disabled]="createPaymentRequestForm.invalid"
+
+    >GENERATE COMMAND</button>
+
+    <div class="cmd-display" *ngIf="showCmd">
+      Copy the command below and paste it into the NavCoin core wallet debugger window, the navcoin cli, or the NavPi's command interface
+
+      <pre>{{generatedCMD}}</pre>
+    </div>
+
+
+
+
+  </mat-card-content>
+
+
+
+</mat-card>
