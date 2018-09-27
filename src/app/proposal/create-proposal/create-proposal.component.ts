@@ -70,7 +70,7 @@ export class CreateProposalComponent implements OnInit {
     const duration =  Math.round((futureDate.getTime() - currentDate.getTime()) / 1000);
 
 
-    this.generatedCMD = `createproposal ${this._navAddressCtrl.value.toString()} ${this._requestedAmountCtl.value.toString()}  ${duration}  "${this.proposalDescriptionCtrl.value.toString()}"`
+    this.generatedCMD = `createproposal ${this._navAddressCtrl.value.toString()} ${this._requestedAmountCtl.value.toString()} ${duration} "${this.proposalDescriptionCtrl.value.toString()}"`
 
   }
 
