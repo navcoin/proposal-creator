@@ -4,8 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 const routes: Routes = [
 
   {
-    path: '', redirectTo: '/proposal/create', pathMatch: 'full',
+    path: 'pi', redirectTo: '/pi/proposal/create', pathMatch: 'full',
   },
+  {
+    path: '', redirectTo: '/proposal/create', pathMatch: 'full',
+  }
 ];
 
 @NgModule({
