@@ -13,7 +13,10 @@
             matInput
             formControlName="requestedAmount"
             placeholder="Amount of NAV Requested">
-          <mat-hint>This is the total amount of NAV required</mat-hint>
+          <mat-hint>This is the total amount of NAV required for your proposal</mat-hint>
+          <mat-error *ngIf="requestedAmountCtl.errors">
+              Please enter a number
+            </mat-error>
         </mat-form-field>
       </p>
 
@@ -23,8 +26,14 @@
           <input
             matInput
             formControlName="navAddress"
-            placeholder="NAV Address">
-          <mat-hint>The address you would like the Requested NAV paid to</mat-hint>
+            placeholder="NAV Address"
+            maxlength="34">
+          <mat-hint>The address you would like the requested NAV paid to</mat-hint>
+          <mat-hint align="end">{{navAddressCtrl.value.toString().length}} / {{navcoinAddressLength}}</mat-hint>
+          <mat-error *ngIf="navAddressCtrl.errors">
+            Please enter a valid NavCoin address, a valid address is {{navcoinAddressLength}} characters long, your input is currently <b>{{navAddressCtrl.value.toString().length}}</b> characters long.
+          </mat-error>
+        
         </mat-form-field>
       </p>
 
@@ -37,6 +46,9 @@
                   placeholder="Proposal Description"></textarea>
           <mat-hint>This should provide details about the proposal - you can also include links</mat-hint>
           <mat-hint align="end">{{proposalDescriptionCtrl.value.toString().length}} / {{proposalDescMaxLength}}</mat-hint>
+          <mat-error *ngIf="proposalDescriptionCtrl.hasError('required')">
+              Please enter a description of your proposal
+            </mat-error>
         </mat-form-field>
       </p>
 
@@ -75,6 +87,7 @@
               {{day}}
             </mat-option>
           </mat-select>
+          
         </mat-form-field>
       </div>
 

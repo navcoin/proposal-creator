@@ -12,12 +12,15 @@
           <input
             matInput
             formControlName="paymentRequestHash"
-            placeholder="Proposal hash">
+            placeholder="Proposal hash"
+            maxlength="64">
           <mat-hint>The hash of the payment request you wish to vote on</mat-hint>
+          <mat-hint align="end">{{paymentRequestHashCtrl.value.toString().length}} / {{paymentRequestHashLength}}</mat-hint>
+          <mat-error *ngIf="paymentRequestHashCtrl.errors">
+              Please enter a valid payment request hash, it should be {{paymentRequestHashLength}} characters long, it is currently <b>{{paymentRequestHashCtrl.value.toString().length }}</b> characters long.
+            </mat-error>
         </mat-form-field>
       </p>
-
-
 
       <mat-form-field>
         <mat-select placeholder="Your vote for the payment request" formControlName="vote">

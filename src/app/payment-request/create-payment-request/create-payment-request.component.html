@@ -12,8 +12,13 @@
           <input
             matInput
             formControlName="proposalHash"
-            placeholder="Proposal Hash">
+            placeholder="Proposal Hash"
+            maxlength="64">
           <mat-hint>This is hash of the proposal that you are requesting payment for</mat-hint>
+          <mat-hint align="end">{{proposalHash.value.toString().length}} / {{proposalHashLength}}</mat-hint>
+          <mat-error *ngIf="proposalHash.errors">
+            Please enter a valid proposal hash, it should be {{proposalHashLength}} characters long, it is currently <b>{{proposalHash.value.toString().length }}</b> characters long.
+          </mat-error>  
         </mat-form-field>
       </p>
 
@@ -24,6 +29,10 @@
             formControlName="requestedAmount"
             placeholder="Amount of NAV Requested">
           <mat-hint>This is the total amount of NAV required</mat-hint>
+          <mat-error *ngIf="requestedAmountCtl.errors">
+              Please enter a valid number
+            </mat-error>
+  
         </mat-form-field>
       </p>
 
@@ -35,6 +44,10 @@
             formControlName="uniqueID"
             placeholder="Unique ID">
           <mat-hint>A unique name for the payment request</mat-hint>
+          <mat-error *ngIf="uniqueID.errors">
+              Please enter a unique name for your payment request
+            </mat-error>
+  
         </mat-form-field>
       </p>
 
@@ -52,12 +65,5 @@
 
       <pre>{{generatedCMD}}</pre>
     </div>
-
-
-
-
   </mat-card-content>
-
-
-
 </mat-card>

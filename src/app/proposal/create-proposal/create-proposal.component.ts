@@ -9,13 +9,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class CreateProposalComponent implements OnInit {
 
   proposalDescMaxLength = 300;
+  navcoinAddressLength = 34;
   showCmd = false;
   generatedCMD = '';
 
   createProposalForm: FormGroup;
 
-  _requestedAmountCtl: FormControl;
-  _navAddressCtrl: FormControl;
+  requestedAmountCtl: FormControl;
+  navAddressCtrl: FormControl;
   proposalDescriptionCtrl: FormControl;
   // _proposalFeeCtrl: FormControl;
 
@@ -32,28 +33,26 @@ export class CreateProposalComponent implements OnInit {
 
   ngOnInit() {
 
-    this._requestedAmountCtl = new FormControl(null, Validators.required);
+    this.requestedAmountCtl = new FormControl(null, [Validators.required, Validators.pattern("^[0-9]*$")]);
     this.proposalDescriptionCtrl = new FormControl('', Validators.required);
-    this._navAddressCtrl = new FormControl('', [Validators.required, Validators.maxLength(34), Validators.minLength(34)]);
+    this.navAddressCtrl = new FormControl('', [Validators.required, Validators.maxLength(34), Validators.minLength(34)]);
     // this._proposalFeeCtrl = new FormControl('', [Validators.min(100), Validators.]);
 
-    this._yearsCtrl = new FormControl(0);
-    this._monthsCtrl = new FormControl(0);
-    this._daysCtrl = new FormControl(0);
+    this._yearsCtrl = new FormControl('');
+    this._monthsCtrl = new FormControl('');
+    this._daysCtrl = new FormControl('');
 
 
 
     this.createProposalForm = new FormGroup({});
 
-    this.createProposalForm.addControl('requestedAmount', this._requestedAmountCtl);
-    this.createProposalForm.addControl('navAddress', this._navAddressCtrl);
+    this.createProposalForm.addControl('requestedAmount', this.requestedAmountCtl);
+    this.createProposalForm.addControl('navAddress', this.navAddressCtrl);
     this.createProposalForm.addControl('description', this.proposalDescriptionCtrl);
     // this.createProposalForm.addControl('proposalFee', this._proposalFeeCtrl);
     this.createProposalForm.addControl('years', this._yearsCtrl);
     this.createProposalForm.addControl('months', this._monthsCtrl);
     this.createProposalForm.addControl('days', this._daysCtrl);
-
-
 
   }
 
@@ -70,7 +69,7 @@ export class CreateProposalComponent implements OnInit {
     const duration =  Math.round((futureDate.getTime() - currentDate.getTime()) / 1000);
 
 
-    this.generatedCMD = `createproposal ${this._navAddressCtrl.value.toString()} ${this._requestedAmountCtl.value.toString()} ${duration} "${this.proposalDescriptionCtrl.value.toString()}"`
+    this.generatedCMD = `createproposal ${this.navAddressCtrl.value.toString()} ${this.requestedAmountCtl.value.toString()} ${duration} "${this.proposalDescriptionCtrl.value.toString()}"`
 
   }
 

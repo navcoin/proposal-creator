@@ -13,12 +13,12 @@ export class VotePaymentRequestComponent implements OnInit {
 
   votePaymentRequestForm: FormGroup;
 
-  _paymentRequestHashCtl: FormControl;
+  paymentRequestHashCtrl: FormControl;
 
 
   _voteCtrl: FormControl;
 
-
+  paymentRequestHashLength = 64;
 
   voteOption: string[] = ['yes', 'no'];
 
@@ -26,14 +26,18 @@ export class VotePaymentRequestComponent implements OnInit {
 
   ngOnInit() {
 
-    this._paymentRequestHashCtl = new FormControl(null, Validators.required);
+    this.paymentRequestHashCtrl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(64),
+      Validators.maxLength(64)
+    ]);
     this._voteCtrl = new FormControl(this.voteOption[0]);
 
 
 
     this.votePaymentRequestForm = new FormGroup({});
 
-    this.votePaymentRequestForm.addControl('paymentRequestHash', this._paymentRequestHashCtl);
+    this.votePaymentRequestForm.addControl('paymentRequestHash', this.paymentRequestHashCtrl);
     this.votePaymentRequestForm.addControl('vote', this._voteCtrl);
 
 
@@ -44,7 +48,7 @@ export class VotePaymentRequestComponent implements OnInit {
   onGenerateClick() {
     this.showCmd = true;
     
-    this.generatedCMD = `paymentrequestvote ${this._paymentRequestHashCtl.value.toString()} ${this._voteCtrl.value.toString()}`
+    this.generatedCMD = `paymentrequestvote ${this.paymentRequestHashCtrl.value.toString()} ${this._voteCtrl.value.toString()}`
 
   }
 

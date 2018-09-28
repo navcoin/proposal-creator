@@ -9,30 +9,35 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class CreatePaymentRequestComponent implements OnInit {
 
   proposalDescMaxLength = 300;
+  proposalHashLength = 64;
   showCmd = false;
   generatedCMD = '';
 
   createPaymentRequestForm: FormGroup;
 
-  _proposalHash: FormControl;
-  _requestedAmountCtl: FormControl;
-  _uniqueID: FormControl;
+  proposalHash: FormControl;
+  requestedAmountCtl: FormControl;
+  uniqueID: FormControl;
   
   constructor() { }
 
   ngOnInit() {
     
-    this._proposalHash = new FormControl('', Validators.required);
-    this._requestedAmountCtl = new FormControl(null, Validators.required);
-    this._uniqueID = new FormControl('', Validators.required);
+    this.proposalHash = new FormControl('', [
+      Validators.required,
+      Validators.minLength(64),
+      Validators.maxLength(64)
+    ]);
+    this.requestedAmountCtl = new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]);
+    this.uniqueID = new FormControl('', Validators.required);
 
 
 
     this.createPaymentRequestForm = new FormGroup({});
 
-    this.createPaymentRequestForm.addControl('proposalHash', this._proposalHash);
-    this.createPaymentRequestForm.addControl('requestedAmount', this._requestedAmountCtl);
-    this.createPaymentRequestForm.addControl('uniqueID', this._uniqueID);
+    this.createPaymentRequestForm.addControl('proposalHash', this.proposalHash);
+    this.createPaymentRequestForm.addControl('requestedAmount', this.requestedAmountCtl);
+    this.createPaymentRequestForm.addControl('uniqueID', this.uniqueID);
 
 
   }
@@ -40,7 +45,7 @@ export class CreatePaymentRequestComponent implements OnInit {
   onGenerateClick() {
     this.showCmd = true;
 
-    this.generatedCMD = `createpaymentrequest ${this._proposalHash.value.toString()} ${this._requestedAmountCtl.value.toString()} "${this._uniqueID.value.toString()}"`
+    this.generatedCMD = `createpaymentrequest ${this.proposalHash.value.toString()} ${this.requestedAmountCtl.value.toString()} "${this.uniqueID.value.toString()}"`
 
   }
 

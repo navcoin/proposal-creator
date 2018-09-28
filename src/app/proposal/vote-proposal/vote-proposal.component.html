@@ -14,8 +14,13 @@
           <input
             matInput
             formControlName="proposalHash"
-            placeholder="Proposal hash">
+            placeholder="Proposal hash"
+            maxlength="64">
           <mat-hint>The hash of the proposal you wish to vote on</mat-hint>
+          <mat-hint align="end">{{proposalHashCtrl.value.toString().length}} / {{proposalHashLength}}</mat-hint>
+          <mat-error *ngIf="proposalHashCtrl.errors">
+            Please enter a valid proposal hash, it should be {{proposalHashLength}} characters long, it is currently <b>{{proposalHashCtrl.value.toString().length }}</b> characters long.
+          </mat-error>
         </mat-form-field>
       </p>
 

@@ -13,12 +13,12 @@ export class VoteProposalComponent implements OnInit {
 
   voteProposalForm: FormGroup;
 
-  _proposalHashCtl: FormControl;
+  proposalHashCtrl: FormControl;
 
 
   _voteCtrl: FormControl;
 
-
+  proposalHashLength = 64;
 
   voteOption: string[] = ['yes', 'no'];
 
@@ -26,12 +26,16 @@ export class VoteProposalComponent implements OnInit {
 
   ngOnInit() {
 
-    this._proposalHashCtl = new FormControl(null, Validators.required);
+    this.proposalHashCtrl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(64),
+      Validators.maxLength(64)
+    ]);
     this._voteCtrl = new FormControl(this.voteOption[0]);
 
     this.voteProposalForm = new FormGroup({});
 
-    this.voteProposalForm.addControl('proposalHash', this._proposalHashCtl);
+    this.voteProposalForm.addControl('proposalHash', this.proposalHashCtrl);
     this.voteProposalForm.addControl('vote', this._voteCtrl);
 
   }
@@ -39,7 +43,7 @@ export class VoteProposalComponent implements OnInit {
   onGenerateClick() {
     this.showCmd = true;
     
-    this.generatedCMD = `proposalvote ${this._proposalHashCtl.value.toString()} ${this._voteCtrl.value.toString()}`
+    this.generatedCMD = `proposalvote ${this.proposalHashCtrl.value.toString()} ${this._voteCtrl.value.toString()}`
 
   }
 
