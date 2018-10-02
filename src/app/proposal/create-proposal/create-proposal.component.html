@@ -66,32 +66,29 @@
         <h2 class="mat-h2">Time to complete</h2>
         <p>How long will the proposal take to complete?</p>
         <mat-form-field>
-          <mat-select placeholder="Years" formControlName="years">
-            <mat-option *ngFor="let year of years" [value]="year">
-              {{year}}
+          <mat-select placeholder="Days" formControlName="days">
+            <mat-option *ngFor="let day of days" [value]="day">
+              {{day}} Day(s)
             </mat-option>
           </mat-select>
         </mat-form-field>
-
+              
         <mat-form-field>
           <mat-select placeholder="Months" formControlName="months">
             <mat-option *ngFor="let month of months" [value]="month">
-              {{month}}
+              {{month}} Month(s)
             </mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field>
-          <mat-select placeholder="Days" formControlName="days">
-            <mat-option *ngFor="let day of days" [value]="day">
-              {{day}}
+          <mat-select placeholder="Years" formControlName="years">
+            <mat-option *ngFor="let year of years" [value]="year">
+              {{year}} Year(s)
             </mat-option>
           </mat-select>
-          
         </mat-form-field>
       </div>
-
-
     </form>
 
     <button class="generate-btn" mat-raised-button
