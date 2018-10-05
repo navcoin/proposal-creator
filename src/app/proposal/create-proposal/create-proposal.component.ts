@@ -38,9 +38,9 @@ export class CreateProposalComponent implements OnInit {
     this.navAddressCtrl = new FormControl('', [Validators.required, Validators.maxLength(34), Validators.minLength(34)]);
     // this._proposalFeeCtrl = new FormControl('', [Validators.min(100), Validators.]);
 
-    this._yearsCtrl = new FormControl('');
-    this._monthsCtrl = new FormControl('');
-    this._daysCtrl = new FormControl('');
+    this._yearsCtrl = new FormControl(0);
+    this._monthsCtrl = new FormControl(0);
+    this._daysCtrl = new FormControl(0);
 
 
 
