@@ -2,6 +2,8 @@ nav {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch;
 }
 
 a {
